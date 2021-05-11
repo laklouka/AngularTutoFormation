@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  count:number = 0
   title = 'demo-app';
+
+
+  getResult(val) {
+    this.count = val
+  }
 }

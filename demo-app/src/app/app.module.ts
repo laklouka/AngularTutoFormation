@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
+import { CountComponent } from './count.component';
 import {HelloComponent} from "./hello.component"
 import { PersonComponent } from './person.component';
 import { SecondComponent } from './second.component';
@@ -10,10 +12,12 @@ import { SecondComponent } from './second.component';
     AppComponent,
     HelloComponent,
     SecondComponent,
-    PersonComponent
+    PersonComponent,
+    CountComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
