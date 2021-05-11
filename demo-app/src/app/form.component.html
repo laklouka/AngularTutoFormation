@@ -1,7 +1,7 @@
 <div>
     <!-- Zone dynamique -->
     <ng-content ></ng-content>
-    
+    <div *ngIf="error">Merci de saisir la totalité des champs</div>
     <div><input type="text" placeholder="Nom : " [(ngModel)]="lastName" /></div>
     <div><input type="text" placeholder="Prenom : " [(ngModel)]="firstName" /></div>
     <div><input type="text" placeholder="Telephone : " [(ngModel)]="phone" /></div>
