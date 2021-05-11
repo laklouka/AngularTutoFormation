@@ -4,7 +4,9 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { CountComponent } from './count.component';
+import { FormPerson } from './form.component';
 import {HelloComponent} from "./hello.component"
+import { HomePerson } from './home.component';
 import { PersonComponent } from './person.component';
 import { SecondComponent } from './second.component';
 @NgModule({
@@ -13,7 +15,9 @@ import { SecondComponent } from './second.component';
     HelloComponent,
     SecondComponent,
     PersonComponent,
-    CountComponent
+    CountComponent,
+    FormPerson,
+    HomePerson
   ],
   imports: [
     BrowserModule,
