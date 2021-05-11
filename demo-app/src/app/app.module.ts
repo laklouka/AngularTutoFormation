@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { CountComponent } from './count.component';
-import { DemoIf } from './demo-directive-structure/demoif.component';
+import { DemoIf, DemoSwitch } from './demo-directive-structure/demoif.component';
 import { FormPerson } from './form.component';
 import {HelloComponent} from "./hello.component"
 import { HomePerson } from './home.component';
@@ -19,7 +19,8 @@ import { SecondComponent } from './second.component';
     CountComponent,
     FormPerson,
     HomePerson,
-    DemoIf
+    DemoIf,
+    DemoSwitch
   ],
   imports: [
     BrowserModule,
