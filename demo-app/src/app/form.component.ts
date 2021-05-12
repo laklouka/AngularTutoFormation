@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from "@angular/core";
+import { Component, EventEmitter, Input, Output } from "@angular/core";
 import { PersonInterface } from "./interfaces/PersonInterface";
 
 @Component({
@@ -7,11 +7,11 @@ import { PersonInterface } from "./interfaces/PersonInterface";
 })
 export class FormPerson {
 
-    @Output() addPerson = new EventEmitter<PersonInterface>()
+    @Output() validPerson = new EventEmitter<PersonInterface>()
     error : boolean = false
-    firstName:String
-    lastName:String
-    phone:String
+    @Input()firstName:String
+    @Input()lastName:String
+    @Input()phone:String
 
     confirmClick() {
         if(this.firstName != null && this.lastName != null && this.phone != null) {
@@ -23,7 +23,7 @@ export class FormPerson {
             this.firstName =""
             this.lastName=""
             this.phone=""
-            this.addPerson.emit(person)
+            this.validPerson.emit(person)
             this.error = false
         }
         else {
