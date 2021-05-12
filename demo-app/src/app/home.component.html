@@ -4,7 +4,9 @@
         <!-- <h1>Titre du componsant form</h1>
         <span>Lorem ipsum</span> -->
     </form-person>
-    <h2>Liste personnes</h2>
+
+    <button (click)="updatePolice()">Modifier taille police</button>
+    <h2 [ngStyle] = "styleH2">Liste personnes</h2>
     <!-- <person-component *ngFor="let p of persons" [firstName]="p.firstName" [lastName]="p.lastName" [phone]="p.phone"></person-component> -->
     <person-component *ngFor="let p of persons; let i = index" [person]="p" [index] = "i" (editPerson)="editPerson($event)" (deletePerson)="deletePerson($event)"></person-component>
 </div>
