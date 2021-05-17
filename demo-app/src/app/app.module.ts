@@ -15,6 +15,8 @@ import { AutoComponentComponent } from './auto-component/auto-component.componen
 import { FirstService } from './services/first.service';
 import { PersonService } from './services/person.service';
 import { LogService } from './services/log.service';
+import { DemoObservableComponent, Obs1, Obs2 } from './demo-observable/demo-observable.component';
+import { ObservableService } from './demo-observable/ObservableService';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,13 +30,16 @@ import { LogService } from './services/log.service';
     DemoSwitch,
     DemoFor,
     ElementFor,
-    AutoComponentComponent
+    AutoComponentComponent,
+    DemoObservableComponent,
+    Obs1,
+    Obs2
   ],
   imports: [
     BrowserModule,
     FormsModule
   ],
-  providers: [FirstService, PersonService, LogService],
+  providers: [FirstService, PersonService, LogService,ObservableService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
