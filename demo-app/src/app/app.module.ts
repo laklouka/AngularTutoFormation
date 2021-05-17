@@ -11,6 +11,8 @@ import {HelloComponent} from "./hello.component"
 import { HomePerson } from './home.component';
 import { PersonComponent } from './person.component';
 import { SecondComponent } from './second.component';
+import { AutoComponentComponent } from './auto-component/auto-component.component';
+import { FirstService } from './services/first.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,13 +25,14 @@ import { SecondComponent } from './second.component';
     DemoIf,
     DemoSwitch,
     DemoFor,
-    ElementFor
+    ElementFor,
+    AutoComponentComponent
   ],
   imports: [
     BrowserModule,
     FormsModule
   ],
-  providers: [],
+  providers: [FirstService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
