@@ -1,6 +1,6 @@
 <div>
     <h1>Accueil personnes</h1>
-    <form-person [firstName]="personToEdit!=null ? personToEdit.firstName : null" [lastName]="personToEdit!=null ? personToEdit.lastName : null" [phone]="personToEdit!=null ? personToEdit.phone : null"(validPerson)="validPerson($event)">
+    <form-person [firstName]="personToEdit!=null ? personToEdit.firstName : null" [lastName]="personToEdit!=null ? personToEdit.lastName : null" [phone]="personToEdit!=null ? personToEdit.phone : null">
         <!-- <h1>Titre du componsant form</h1>
         <span>Lorem ipsum</span> -->
     </form-person>
@@ -8,5 +8,5 @@
     <button (click)="updatePolice()">Modifier taille police</button>
     <h2 [ngStyle] = "styleH2">Liste personnes</h2>
     <!-- <person-component *ngFor="let p of persons" [firstName]="p.firstName" [lastName]="p.lastName" [phone]="p.phone"></person-component> -->
-    <person-component *ngFor="let p of persons; let i = index" [person]="p" [index] = "i" (editPerson)="editPerson($event)" (deletePerson)="deletePerson($event)"></person-component>
+    <person-component *ngFor="let p of persons; let i = index" [person]="p" [index] = "i" (editPerson)="editPerson($event)" ></person-component>
 </div>

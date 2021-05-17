@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from "@angular/core";
 import { PersonInterface } from "./interfaces/PersonInterface";
+import { PersonService } from "./services/person.service";
 
 @Component({
     selector : 'form-person',
@@ -13,6 +14,10 @@ export class FormPerson {
     @Input()lastName:String
     @Input()phone:String
 
+    constructor(public personService:PersonService) {
+
+    }
+
     confirmClick() {
         if(this.firstName != null && this.lastName != null && this.phone != null) {
             const person : PersonInterface = {
@@ -23,7 +28,8 @@ export class FormPerson {
             this.firstName =""
             this.lastName=""
             this.phone=""
-            this.validPerson.emit(person)
+            // this.validPerson.emit(person)
+            this.personService.addPerson(person)
             this.error = false
         }
         else {

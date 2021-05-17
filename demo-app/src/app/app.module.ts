@@ -13,6 +13,7 @@ import { PersonComponent } from './person.component';
 import { SecondComponent } from './second.component';
 import { AutoComponentComponent } from './auto-component/auto-component.component';
 import { FirstService } from './services/first.service';
+import { PersonService } from './services/person.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +33,7 @@ import { FirstService } from './services/first.service';
     BrowserModule,
     FormsModule
   ],
-  providers: [FirstService],
+  providers: [FirstService, PersonService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

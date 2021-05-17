@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
 import { PersonInterface } from "./interfaces/PersonInterface";
+import { PersonService } from "./services/person.service";
 
 @Component({
     selector : 'home-person',
@@ -9,31 +10,36 @@ import { PersonInterface } from "./interfaces/PersonInterface";
 
 export class HomePerson {
 
+    
     persons : Array<PersonInterface> = new Array<PersonInterface>()
     personToEdit:any = undefined
-    validPerson(person : PersonInterface) {
-        if(this.personToEdit == undefined)
-            this.persons.push(person)
-        else {
-            this.persons[this.personToEdit.index] = {...person}
-            this.personToEdit = undefined
-        }
-        console.log(this.persons)
-    }
+    
     styleH2 : any
 
     size : number = 30
 
-    constructor() {
+    constructor(public personService:PersonService) {
         this.styleH2 = {
             'color' : 'red',
             'font-size' : this.size+'px'
         }
+
+        this.persons = this.personService.persons
     }
-    deletePerson(index:number) {
-        this.persons.splice(index,1)
-        console.log(this.persons)
-    }
+    // deletePerson(index:number) {
+    //     this.persons.splice(index,1)
+    //     console.log(this.persons)
+    // }
+
+    // validPerson(person : PersonInterface) {
+    //     if(this.personToEdit == undefined)
+    //         this.persons.push(person)
+    //     else {
+    //         this.persons[this.personToEdit.index] = {...person}
+    //         this.personToEdit = undefined
+    //     }
+    //     console.log(this.persons)
+    // }
 
     editPerson(person:any) {
         this.personToEdit = person
