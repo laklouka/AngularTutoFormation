@@ -14,16 +14,26 @@ export class ProductCartComponent implements OnInit {
     constructor(private cartService : CartService) {
        
     }
-    
+
     ngOnInit(): void {
        this.qty = this.product.qty 
     }
 
-    deleteProduct() {
+    deleteProduct(): void {
         this.cartService.deleteFromCart(this.product.id)
     }
 
-    updateQty() {
+    updateQty(): void {
         this.cartService.updateQty(this.product.id, this.qty)
+    }
+
+    update(type:string) : void {
+        if(type == "increment") {
+            this.qty++
+        }else if(type="decrement") {
+            if(this.qty> 0)
+                this.qty--
+        }
+       this.updateQty()
     }
 }
