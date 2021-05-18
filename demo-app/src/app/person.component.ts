@@ -32,6 +32,7 @@ export class PersonComponent {
     }
 
     editPersonClick() {
-        this.editPerson.emit({...this.person, index : this.index})
+        //this.editPerson.emit({...this.person, index : this.index})
+        this.personService.subjectPerson.next({...this.person, index : this.index})
     }
 }

@@ -13,9 +13,15 @@ export class FormPerson {
     @Input()firstName:String
     @Input()lastName:String
     @Input()phone:String
+    index : number = undefined
 
     constructor(public personService:PersonService) {
-
+        this.personService.subjectPerson.subscribe((obj) => {
+            this.firstName = obj.firstName
+            this.lastName= obj.lastName
+            this.phone = obj.phone
+            this.index = obj.index
+        })
     }
 
     confirmClick() {
@@ -29,7 +35,12 @@ export class FormPerson {
             this.lastName=""
             this.phone=""
             // this.validPerson.emit(person)
-            this.personService.addPerson(person)
+            if(this.index == undefined) {
+                this.personService.addPerson(person)
+            }
+            else {
+                this.personService.updatePerson(person, this.index)
+            }
             this.error = false
         }
         else {
