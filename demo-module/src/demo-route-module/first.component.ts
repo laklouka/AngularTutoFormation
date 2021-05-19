@@ -19,6 +19,6 @@ export class FirstComponent {
     goTo(name):void {
         //Utiliser le nom du composant et chercher le path à partir de notre tableau de routes
         //const path = routes.find(e => e.component == name).path
-        this.router.navigate(['/'+name])
+        this.router.navigate(['/'+name], {replaceUrl:true})
     }
 }
