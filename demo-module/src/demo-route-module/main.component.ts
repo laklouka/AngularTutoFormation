@@ -6,8 +6,8 @@ import { Component } from "@angular/core";
         <div>
             <h1>Main Component</h1>
             <nav>
-                <li>First component</li>
-                <li>Second component</li>
+                <li><a routerLink="/first">First component</a></li>
+                <li><a routerLink="/second">Second component</a></li>
             </nav>
             <router-outlet></router-outlet>
         </div>

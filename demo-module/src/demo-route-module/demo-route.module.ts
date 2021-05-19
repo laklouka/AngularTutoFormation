@@ -7,7 +7,7 @@ import { MainComponent } from "./main.component";
 import { SecondComponent } from "./second.component";
 
 //Création Routes
-const routes : Routes = [
+export const routes : Routes = [
     {path:'', component:HomeComponent},
     {path:'first', component:FirstComponent},
     {path:'second', component:SecondComponent},
