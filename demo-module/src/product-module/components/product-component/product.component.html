@@ -12,6 +12,18 @@
             Prix : {{product.price}} €
         </div>
     </div>
+
+    <div class="row m-1 justify-content-center">
+        <a class="col p-1" routerLink='comment'>
+            Comment
+        </a>
+        <a class="col p-1" routerLink='spec'>
+            Spec
+        </a>
+    </div>
+    <div class="row m-1 ">
+        <router-outlet></router-outlet>
+    </div>
     <div class="row m-1 justify-content-center">
         <a [routerLink]="['/panier', product.id]" class="col p-1 btn btn-success">
             Ajouter au panier
