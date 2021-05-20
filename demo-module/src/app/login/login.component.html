@@ -1,0 +1,11 @@
+<div class="container">
+    <div class="row m-1 justify-content-center">
+        <input type="text" placeholder="login" [(ngModel)] = "login" class="form-control col-6 p-1" />
+    </div>
+    <div class="row m-1 justify-content-center">
+        <input type="password" placeholder="mot de passe" [(ngModel)] = "password" class="form-control col-6 p-1" />
+    </div>
+    <div class="row m-1 justify-content-center">
+        <button (click)="loginClick()" class="btn btn-primary col-6 p-1" >Se connecter</button>
+    </div>
+</div>

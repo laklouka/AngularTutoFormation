@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
 import { CartModule } from 'src/cart-module/cart.module';
@@ -12,12 +13,17 @@ import { SpecComponent } from 'src/product-module/components/spec-component/spec
 import { ProductModule } from 'src/product-module/product.module';
 
 import { AppComponent } from './app.component';
+import { GuardService } from './guard.service';
+import { LoginService } from './login.service';
+import { LoginComponent } from './login/login.component';
 
 
 const routes : Routes = [
   {path : '', component : ProductsComponent},
-  {path : 'panier', component : CartComponent},
-  {path : 'panier/:id', component : CartComponent},
+  {path : 'login', component : LoginComponent},
+  // {path : 'panier', component : CartComponent},
+  // {path : 'panier/:id', component : CartComponent},
+  {path: 'panier', loadChildren : () => import('./../cart-module/cart.module').then(m => m.CartModule), canActivate:[GuardService]},
   {path : 'detail/:id', component : ProductComponent, children : [
           {path : 'comment', component:CommentComponent},
           {path : 'spec', component:SpecComponent},
@@ -26,17 +32,19 @@ const routes : Routes = [
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginComponent
   ],
   imports: [
+    RouterModule.forRoot(routes),
     BrowserModule,
     FirstModule,
-    CartModule,
+    //CartModule,
     // DemoRouteModule,
     ProductModule,
-    RouterModule.forRoot(routes)
+    FormsModule
   ],
-  providers: [],
+  providers: [LoginService, GuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
