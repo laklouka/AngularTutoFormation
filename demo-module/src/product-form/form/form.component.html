@@ -1,0 +1,19 @@
+<form class="container" (ngSubmit)="submitProduct()" [formGroup]="productForm">
+    <div class="row justify-content-center m-1">
+        <input type="text" formControlName="title" placeholder="Titre du produit" class="col-6 form-control p-1" />
+        <span class="text-danger col-2" *ngIf="productForm.controls.title.touched && productForm.controls.title.invalid">required field</span>
+    </div>
+    <div class="row justify-content-center m-1">
+        <input type="number" formControlName="price" placeholder="Prix du produit"  class="col-6 form-control p-1" />
+        <span class="text-danger col-2" *ngIf="productForm.controls.price.touched && productForm.controls.price.invalid">required field</span>
+
+    </div>
+    <div class="row justify-content-center m-1">
+        <textarea type="text" formControlName="description" placeholder="Description du produit" class="col-6 form-control p-1" ></textarea>
+        <span class="text-danger col-2" *ngIf="productForm.controls.description.touched && productForm.controls.description.invalid">required field</span>
+
+    </div>
+    <div class="row justify-content-center m-1">
+        <button type="submit" class="col-6 btn btn-secondary p-1">Valider</button>
+    </div>
+</form>

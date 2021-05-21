@@ -8,4 +8,8 @@ export class ProductsService {
         {id : 3, title : 'product 3', price : 30, description : 'description product 3'},
         {id : 4, title : 'product 4', price : 40, description : 'description product 4'},
     ]
+
+    addProduct(product) {
+        this.products.push({id : this.products.length+1, ...product})
+    }
 }

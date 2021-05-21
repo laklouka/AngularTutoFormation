@@ -11,6 +11,7 @@ import { ProductComponent } from 'src/product-module/components/product-componen
 import { ProductsComponent } from 'src/product-module/components/products-component/products.component';
 import { SpecComponent } from 'src/product-module/components/spec-component/spec.component';
 import { ProductModule } from 'src/product-module/product.module';
+import { ProductsService } from 'src/product-module/services/products.service';
 
 import { AppComponent } from './app.component';
 import { GuardService } from './guard.service';
@@ -24,6 +25,7 @@ const routes : Routes = [
   // {path : 'panier', component : CartComponent},
   // {path : 'panier/:id', component : CartComponent},
   {path: 'panier', loadChildren : () => import('./../cart-module/cart.module').then(m => m.CartModule), canActivate:[GuardService]},
+  {path: 'formulaire', loadChildren : () => import('./../product-form/product-form.module').then(m => m.ProductFormModule), canActivate:[GuardService]},
   {path : 'detail/:id', component : ProductComponent, children : [
           {path : 'comment', component:CommentComponent},
           {path : 'spec', component:SpecComponent},
@@ -44,7 +46,7 @@ const routes : Routes = [
     ProductModule,
     FormsModule
   ],
-  providers: [LoginService, GuardService],
+  providers: [LoginService, GuardService, ProductsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

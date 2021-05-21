@@ -12,7 +12,7 @@ import { ProductsService } from "./services/products.service";
     declarations:[ProductsComponent, ProductComponent, CommentComponent, SpecComponent],
     imports : [BrowserModule,RouterModule],
     exports : [ProductsComponent, ProductComponent, CommentComponent, SpecComponent],
-    providers : [ProductsService]
+    providers : []
 })
 export class ProductModule {
 
