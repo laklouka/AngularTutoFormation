@@ -3,6 +3,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
+import { CustomValidator } from './custom-validator.service';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,7 @@ import { AppComponent } from './app.component';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [CustomValidator],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { CustomValidator } from './custom-validator.service';
 
 @Component({
   selector: 'app-root',
@@ -18,15 +19,23 @@ export class AppComponent {
 
   userForm : FormGroup
 
-  constructor() {
-    this.userForm= new FormGroup({
-      firstName : new FormControl('toto'),
-      lastName : new FormControl('tata')
+  constructor(private builder:FormBuilder, private customValidator:CustomValidator) {
+    // this.userForm= new FormGroup({
+    //   firstName : new FormControl('toto'),
+    //   lastName : new FormControl('tata')
+    // })
+    this.userForm = this.builder.group({
+      firstName : new FormControl('',[Validators.required, this.customValidator.customMax(4)]),
+      lastName : new FormControl('', [Validators.required])
     })
   }
 
   submitForm() {
-    console.log(this.userForm.value)
     console.log(this.userForm.controls.firstName)
+    console.log(this.userForm.controls.firstName.hasError("maxLength"))
   }
+  
+  
+  
 }
+

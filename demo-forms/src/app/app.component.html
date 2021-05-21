@@ -17,15 +17,26 @@
 
 <!-- Avec ReactiveFormsModule -->
 <form [formGroup]="userForm" (ngSubmit)="submitForm()">
+  <div *ngIf="userForm.untouched">
+    Merci de saisir le formulaire
+  </div>
   <div>
     <label>Nom : </label>
     <input type="text" formControlName="lastName" />
+    <!-- <div *ngIf="userForm.controls.lastName.invalid || userForm.controls.lastName.untouched">Merci de saisir le nom</div> -->
+    <div *ngIf="userForm.controls.lastName.hasError('required')">Merci de saisir le nom</div>
+    <div *ngIf="userForm.controls.lastName.hasError('maxLength')">Merci de saisir un nom de taille 3 max</div>
   </div>
   <div>
     <label>Prénom : </label>
     <input type="text" formControlName="firstName"/>
+    <div *ngIf="userForm.controls.firstName.invalid || userForm.controls.firstName.untouched">Merci de saisir le nom</div>
   </div>
   <div>
     <button type="submit">Valider</button>
   </div>
 </form>
+<div *ngIf="userForm.valid">
+    {{userForm.value.firstName}}
+    {{userForm.value.lastName}} 
+</div>
