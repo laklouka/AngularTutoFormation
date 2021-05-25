@@ -15,7 +15,7 @@ const routes : Routes = [
 
 @NgModule({
     declarations:[CartComponent, ProductCartComponent],
-    providers : [CartService, ProductsService],
+    providers : [CartService],
     exports : [CartComponent],
     imports : [FormsModule, CommonModule, RouterModule.forChild(routes)]
 })
