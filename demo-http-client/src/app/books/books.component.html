@@ -1,0 +1,11 @@
+<div>
+    <form [formGroup]="formSearch" (ngSubmit)="requestSearch()">
+        <div>
+            <label>Isbn:</label>
+            <input type="text" formControlName="search" />
+        </div>
+        <div>
+            <button type="submit">Valider</button>
+        </div>
+    </form>
+</div>
