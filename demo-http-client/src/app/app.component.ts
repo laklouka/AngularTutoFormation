@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ApiService } from './api.service';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +11,7 @@ export class AppComponent implements OnInit, OnDestroy {
   responseMessage:string 
   referenceRequest:any
   referenceInterval:any 
-  constructor(private httpClient:HttpClient) {
+  constructor(private httpClient:HttpClient, private apiService:ApiService) {
 
   }
   ngOnDestroy(): void {
@@ -18,10 +19,12 @@ export class AppComponent implements OnInit, OnDestroy {
     clearInterval(this.referenceInterval)
   }
   ngOnInit(): void {
-    this.referenceRequest = this.httpClient.get('http://localhost:3001/').subscribe((res:any) => {
+    // this.referenceRequest = this.httpClient.get('http://localhost:3001/').subscribe((res:any) => {
+    //   this.responseMessage = res.message
+    // })
+    this.referenceRequest = this.apiService.get('').subscribe((res:any) => {
       this.responseMessage = res.message
     })
-
     this.referenceInterval = setInterval(()=> {console.log('test')}, 1000)
 
   }
@@ -31,7 +34,7 @@ export class AppComponent implements OnInit, OnDestroy {
     //   this.responseMessage = res.message
     // })
     
-    this.httpClient.post('http://localhost:3001/', {requestMessage : "message"}, {headers : {}}).subscribe((res:any) => {
+    this.apiService.post('', {requestMessage : "message"}).subscribe((res:any) => {
       this.responseMessage = res.message
     })
   }
