@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserDynamicTestingModule } from '@angular/platform-browser-dynamic/testing';
 
 import { AppComponent } from './app.component';
 import { CustomPipe } from './custom.pipe';
@@ -10,7 +11,8 @@ import { CustomPipe } from './custom.pipe';
     CustomPipe
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    BrowserDynamicTestingModule
   ],
   providers: [],
   bootstrap: [AppComponent],
