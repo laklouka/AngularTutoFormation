@@ -17,6 +17,7 @@ import { AppComponent } from './app.component';
 import { GuardService } from './guard.service';
 import { LoginService } from './login.service';
 import { LoginComponent } from './login/login.component';
+import { PricePipe } from './price.pipe';
 
 
 const routes : Routes = [
@@ -35,7 +36,8 @@ const routes : Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    
   ],
   imports: [
     RouterModule.forRoot(routes),
